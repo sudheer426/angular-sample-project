@@ -20,8 +20,7 @@ pipeline {
         stage('Run') {
             steps {
 			    script {
-                   sh 'export JENKINS_NODE_COOKIE=dontKillMe'
-				   sh 'pm2 --name SampleApp start npm -- start'
+                   sh 'export JENKINS_NODE_COOKIE=dontKillMe; pm2 --name SampleApp start npm -- start'
 				}
             }
         }
