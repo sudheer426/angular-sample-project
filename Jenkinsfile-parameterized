@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'export BUILD_ID=dontKillMePlease ./start.sh'
+                sh 'export BUILD_ID=dontKillMePlease; ./start.sh'
             }
         }
     }
