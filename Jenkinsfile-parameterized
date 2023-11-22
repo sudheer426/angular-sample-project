@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+	parameters {
+        booleanParam(name: 'skip_test', defaultValue: false, description: 'Set to true to skip the test stage')
+    stages {
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+	    stage('Test') {
+		    when { expression { params.skip_test != true } }
+            steps {
+                sh 'docker build -t angular-test .'
+		        sh 'docker run --rm angular-test'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh './start.sh'
+            }
+        }
+    }
+}
