@@ -19,8 +19,10 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'export BUILD_ID=dontKillMe'
-				sh 'pm2 --name SampleApp start npm -- start'
+			    script {
+                   sh 'export BUILD_ID=dontKillMe'
+				   sh 'pm2 --name SampleApp start npm -- start'
+				}
             }
         }
     }
