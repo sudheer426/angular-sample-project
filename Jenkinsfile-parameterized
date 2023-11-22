@@ -9,7 +9,7 @@ pipeline {
 	    stage('Test') {
 		    when {
 			     expression {
-				    return params.skip_test == 'true'
+				    return params.skip_test == 'no'
 				}
 			}
             steps {
