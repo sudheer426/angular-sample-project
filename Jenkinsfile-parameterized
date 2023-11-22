@@ -13,8 +13,8 @@ pipeline {
 				}
 			}
             steps {
-                sh 'docker build -t angular-test .'
-		        sh 'docker run --rm angular-test'
+              sh 'docker build -t angular-test .'
+              sh 'docker run --rm angular-test'
             }
         }
         stage('Run') {
